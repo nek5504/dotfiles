@@ -1,0 +1,13 @@
+# eclipse
+.cproject
+.project
+.settings/
+
+# JetBrains IDE
+.idea/
+
+# global
+GPATH
+GRTAGS
+GSYMS
+GTAGS
