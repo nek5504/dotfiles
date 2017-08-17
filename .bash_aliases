@@ -1,4 +1,5 @@
-echo "SHLVL = $SHLVL"
+# Environments:
+PS1='${debian_chroot:+($debian_chroot)}\u@\h [\w]:\n$ '
 
 if [ 1 -eq $SHLVL ]; then
   # Aliases:
@@ -15,8 +16,6 @@ if [ 1 -eq $SHLVL ]; then
   if [ -e "${HOME}/.nodebrew" ]; then
     PATH="$PATH:${HOME}/.nodebrew/current/bin"
   fi
-
-  PS1="\u@\h: [\w]\n$ "
 
 
   # Pretty functions:
