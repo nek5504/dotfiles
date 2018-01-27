@@ -7,7 +7,7 @@ backup() {
       continue
     fi
 
-    echo "Copy: \"${HOME}/$f\" -> \"./dotfiles/$f\""
+    log "Copy: \"${HOME}/$f\" -> \"./dotfiles/$f\""
     cp -a "${HOME}/$f" "./dotfiles/$f"
   done
 }
@@ -19,7 +19,7 @@ install() {
       continue
     fi
 
-    echo "Copy: \"./dotfiles/$f\" -> \"${HOME}/$f\""
+    log "Copy: \"./dotfiles/$f\" -> \"${HOME}/$f\""
     cp -a "./dotfiles/$f" "${HOME}/$f"
   done
 }
@@ -32,6 +32,10 @@ command:
   -b, --backup      Backup local dotfiles.
   -i, --install	    Install dotfiles.
 EOF
+}
+
+log() {
+    echo "($0)" "$@"
 }
 
 set -e
