@@ -2,6 +2,7 @@
 alias ..='cd ..'
 alias emacs='emacs -nw'
 alias sc='screen'
+alias sudo='sudo LC_ALL=C'
 
 
 # Environments:
@@ -21,11 +22,19 @@ fi
 
 # Pretty functions:
 cgrep() {
-  find . -regex ".*\.\(c\|cc\|h\|cpp\|hpp\|cxx\|hxx\)" -print0 | xargs -0 grep --color=auto -Hine "$@"
+  find . -type f -regex ".*\.\(c\|cc\|h\|cpp\|hpp\|cxx\|hxx\)" -print0 | xargs -0 grep --color=auto -Hn $@
 }
 
 jgrep() {
-  find . -name "*.java" -print0 | xargs -0 grep --color=auto -Hine "$@"
+  find . -type f -name "*.java" -print0 | xargs -0 grep --color=auto -Hn $@
+}
+
+jsgrep() {
+  find . -type f -name "*.js" -print0 | xargs -0 grep --color=auto -Hn $@
+}
+
+pygrep() {
+  find . -type f -name "*.py" -print0 | xargs -0 grep --color=auto -Hn $@
 }
 
 date_string() {
@@ -69,3 +78,5 @@ fi
 if [ -e "${HOME}/.bash_env" ]; then
   . "${HOME}/.bash_env"
 fi
+
+cd "${HOME}"
